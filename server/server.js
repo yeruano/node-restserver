@@ -5,8 +5,11 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+// parse aplication/X-www-form-urlencode
 app.use(express.urlencoded({ extended: false }));
-app.use( require('./routes/usuario') );
+
+// configuración global de rutas
+app.use(require('./routes/index'));
 
 mongoose.connect(process.env.URLDB,
                 { useNewUrlParser: true, useCreateIndex: true },
